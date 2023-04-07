@@ -6,14 +6,13 @@ const shopItem2 = {name:'Dagger of Profit',value:100,description:'txt'}
 
 test('Append value', () =>{
     ll.append(shopItem);
-    expect(ll.arrOfValues.length).toBe(1);
+    expect(ll.itemsName.length).toBe(1);
     ll.append(shopItem2);
-    expect(ll.arrOfValues.length).toBe(2);
+    expect(ll.itemsName.length).toBe(2);
 })
 test('Delete specific item by name', () => {
     ll.deleteSpecificValue('Dagger of Profit')
     expect(ll.linkLst.value.name).toBe('Frantic Sword')
     expect(ll.linkLst.NextNode).toBe(null)
-    expect(ll.arrOfValues.length).toBe(1);
-    
+    expect(ll.itemsName.length).toBe(1); 
 })
