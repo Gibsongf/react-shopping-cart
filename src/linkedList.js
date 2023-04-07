@@ -1,4 +1,4 @@
-class LinkedList {
+export class CreateLinkedList {
 	constructor() {
 		this.linkLst = {};
 		this.size = 0;
@@ -44,7 +44,7 @@ class LinkedList {
         of the node containing value, or null if not found.*/
 	find(value) {
 		let hasIt = this.checkValue(this.linkLst, value);
-		/* console.log(hasIt); */
+		// console.log(hasIt);
 		if (Array.isArray(hasIt)) {
 			return hasIt;
 		} else {
@@ -53,15 +53,14 @@ class LinkedList {
 	}
 
 	checkValue(lst, value, prevLst, indx = 0) {
-		/* console.log(value, lst, prevLst); */
-		if (lst.value === value) {
+		// console.log(value,lst.value.name);
+		if (lst.value.name === value) {
 			return [true, indx, lst, prevLst];
 		}
 		if (lst.NextNode === null) {
 			return false;
 		} else {
 			indx++;
-			console.log(lst);
 			return this.checkValue(lst.NextNode, value, lst, indx);
 		}
 	}
@@ -103,7 +102,7 @@ class LinkedList {
 	/*  prepend(value) adds a new node containing
         value to the start of the list  */
 	prepend(node) {
-		this.arrOfValues.push(node.value);
+		
 		if (Object.values(this.linkLst).length <= 1) {
 			this.linkLst.value = node.value;
 			this.linkLst.NextNode = null;
@@ -118,9 +117,9 @@ class LinkedList {
 	}
 }
 
-function node(name) {
-	return {
-		value: name,
-		NextNode: null,
-	};
-}
+// function node(name) {
+// 	return {
+// 		value: name,
+// 		NextNode: null,
+// 	};
+// }
