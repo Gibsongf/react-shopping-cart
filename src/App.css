@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+    
+}
+#root{
+    background-image: url('../src/imgs/image.jpg');
+    background-repeat: no-repeat;
+    height: 120vh;
+}
+.App{
+    padding: 10px;
+    
+}
+
