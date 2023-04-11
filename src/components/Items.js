@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../components/Item.css";
+
 export const Items = (props) => {
 	const { name, description, imgSrc, price } = props;
 	const [quantity, setQuantity] = useState(0);

@@ -1,19 +1,13 @@
 brutal {
-	The Frantic Sword is a sword-type melee weapon which deals more damage
-	while the player is at or below 50% health or has at least 50% malaise.
+	The Frantic Sword is a sword-type melee weapon which deals more damage while the player is at or below 50% health or has at least 50% malaise.
 	
-	The Dagger of Profit is a melee weapon which inflicts critical hits 
-	shortly after picking up gold.
+	The Dagger of Profit is a melee weapon which inflicts critical hits shortly after picking up gold.
 	
-	The Bone is a melee weapon that has a special followup attack when
-	successfully striking the enemy with the second attack in its combo.
+	The Bone is a melee weapon that has a special followup attack when successfully striking the enemy with the second attack in its combo.
 	
-	The Crowbar is a melee weapon. It is a unique weapon which deals
-	critical hits right after destroying a door or hitting a specific
-	"bestial" type enemy
-
-	The Assassin's Dagger is a dagger-type melee weapon, which deals
-	critical damage when hitting enemies from behind.
+	The Crowbar is a melee weapon. It is a unique weapon which deals critical hits right after destroying a door or hitting a specific 'bestial' type enemy
+	
+	The Assassin's Dagger is a dagger-type melee weapon, which deals critical damage when hitting enemies from behind.
 }
 tactics {
     The Alchemic Carbine is a crossbow-type ranged weapon which poisons enemies hit by its bolts.
@@ -21,9 +15,12 @@ tactics {
     Boomerang is a ranged weapon which deals damage as it returns to the player. 
 
     The Electric Whip is a whip-type ranged weapon which auto-targets enemies, and deals damage to nearby enemies when it hits. 
-
+	
     The Killing Deck is a ranged weapon that throws out sets of cards in different patterns which stick to enemies. The last hit recalls the thrown cards, dealing critical damage to struck enemies
-
+	The Alchemic Carbine
+    Boomerang
+    The Electric Whip
+    The Killing Deck 
     The War Javelin is a javelin-type ranged weapon which knocks back all enemies in its path and can even be used to teleport after being thrown
 }
 
@@ -31,10 +28,10 @@ survival {
     The Broadsword is a heavy melee weapon which swings slowly, but deals massive damage in subsequent attacks in its combo.
 
     The Gold Digger is a melee weapon which inflicts critical hits if the player has enough gold. 
-
+	
     The Greed Shield is a shield weapon which generates gold upon parrying attacks. 
-
+	
     The Nutcracker is a warhammer-type melee weapon which inflicts critical hits on enemies that are stunned, frozen or rooted. 
-
+	
     The Maw of the Deep is a melee weapon that has 3 hit combo with the third hit being a ranged attack. When the ranged attack hits the shark latches onto the target, rooting them and inflicting bleeding. 
 }
