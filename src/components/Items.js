@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../components/Item.css";
-
-export const Items = (props) => {
+import CurrencyIcon from'../imgs/Gold_Currency_Icon.png'
+export const Product = (props) => {
 	const { name, description, imgSrc, price } = props;
 	const [quantity, setQuantity] = useState(0);
 	const divClicked = () => {
@@ -13,7 +13,7 @@ export const Items = (props) => {
 		<div className="item">
 			<img src={imgSrc} alt={name} className="item-img" />
 			<h4>{name}</h4>
-			<p>${price}</p>
+			<p><img src={CurrencyIcon} alt="gold-coin" />{price}</p>
 			{}
 		</div>
 	);

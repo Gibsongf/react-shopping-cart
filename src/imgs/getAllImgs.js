@@ -16,13 +16,13 @@ export const brutalItems = () => {
 		"Melee weapon. It is a unique weapon which deals critical hits right after destroying a door or hitting a specific 'bestial' type enemy",
 		"Dagger-type melee weapon, which deals critical damage when hitting enemies from behind.",
 	];
-
+	const price = [1500, 2000, 1500, 1500, 1500];
 	const itemsData = {
-		"frantic Sword": [names[0], description[0]],
-		"dagger of Profit": [names[1], description[1]],
-		bone: [names[2], description[2]],
-		crowbar: [names[3], description[3]],
-		"assassin's Dagger": [names[4], description[4]],
+		"frantic Sword": [names[0], description[0], price[0]],
+		"dagger of Profit": [names[1], description[1], price[1]],
+		bone: [names[2], description[2], price[2]],
+		crowbar: [names[3], description[3], price[3]],
+		"assassin's Dagger": [names[4], description[4], price[4]],
 	};
 	return itemsData;
 };
@@ -41,12 +41,13 @@ export const tacticsItems = () => {
 		"Ranged weapon that throws out sets of cards in different patterns which stick to enemies. The last hit recalls the thrown cards, dealing critical damage to struck enemies",
 		"Javelin-type ranged weapon which knocks back all enemies in its path and can even be used to teleport after being thrown",
 	];
+	const price = [2000, 1250, 1750, 1750, 1250];
 	const itemsData = {
-		"alchemic carbine": [names[0], description[0]],
-		boomerang: [names[1], description[1]],
-		"electric Whip": [names[2], description[2]],
-		"killing Deck": [names[3], description[3]],
-		"war Javelin": [names[4], description[4]],
+		"alchemic carbine": [names[0], description[0], price[0]],
+		boomerang: [names[1], description[1], price[1]],
+		"electric Whip": [names[2], description[2], price[2]],
+		"killing Deck": [names[3], description[3], price[3]],
+		"war Javelin": [names[4], description[4], price[4]],
 	};
 	return itemsData;
 };
@@ -66,17 +67,18 @@ export const survivalItems = () => {
 		"Warhammer-type melee weapon which inflicts critical hits on enemies that are stunned, frozen or rooted.",
 		"Melee weapon that has 3 hit combo with the third hit being a ranged attack. When the ranged attack hits the shark latches onto the target, rooting them and inflicting bleeding.",
 	];
+	const price = [1750, 2000, 1750, 1750, 2000];
 	const itemsData = {
-		broadsword: [names[0], description[0]],
-		"gold Digger": [names[1], description[1]],
-		"greed Shield": [names[2], description[2]],
-		nutcracker: [names[3], description[3]],
-		"maw of the Deep": [names[4], description[4]],
+		broadsword: [names[0], description[0], price[0]],
+		"gold Digger": [names[1], description[1], price[1]],
+		"greed Shield": [names[2], description[2], price[2]],
+		nutcracker: [names[3], description[3], price[3]],
+		"maw of the Deep": [names[4], description[4], price[4]],
 	};
 	return itemsData;
 };
 export const allImg = (imgNames, subfolder) => {
-    // search for all the png imgs in specific folder
+	// search for all the png imgs in specific folder
 	const survivalFolder = require.context(
 		"/src/imgs/survival",
 		false,
@@ -90,10 +92,10 @@ export const allImg = (imgNames, subfolder) => {
 		tactics: tacticsFolder,
 	};
 	try {
-        // send the results and get  
-        //a obj contain src name of all imgs
+		// send the results and get
+		//a obj contain src name of all imgs
 		const imgSrc = getAllImgs(paths[subfolder], imgNames);
-        return imgSrc
+		return imgSrc;
 	} catch (error) {
 		throw error;
 	}
@@ -111,6 +113,7 @@ function getAllImgs(imgsFiles, imgsData) {
 				src: imgsFiles(imagesSrc[i]), //call to get the src
 				name: imgsData[sortedImgNames[i]][0],
 				description: imgsData[sortedImgNames[i]][1],
+                price:imgsData[sortedImgNames[i]][2],
 				/* id: "card" + (imagesSrc.indexOf(key) + 1), */
 			})
 	);

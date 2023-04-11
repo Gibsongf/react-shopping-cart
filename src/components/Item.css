@@ -1,10 +1,25 @@
 
 /* a custom font is need here */
-
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 25px;
+}
 .item {
+    font-size: 1.2rem;
     padding: 10px;
     width: 250px;
     border: solid black 2px;
+    background-color: rgba(209, 209, 209, 0.4);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-evenly;
+    
+}
+.item:hover{
+    background-color: rgba(209, 209, 209, 0.687);
 }
 .item-img{
     height: 250px;

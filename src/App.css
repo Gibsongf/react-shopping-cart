@@ -5,11 +5,12 @@
     
 }
 #root{
-    background-image: url('../src/imgs/image.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('../src/imgs/bk.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 .App{
+    
     padding: 10px;
     
 }
