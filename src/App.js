@@ -1,14 +1,37 @@
 import "./App.css";
-import { AllBrutalItemsImg } from "./pages/BrutalityItems";
-import { AllSurvivalItemsImg } from "./pages/SurvivalItems";
-import { AllTacticsItemsImg } from "./pages/TacticsItems";
+
+import { Routes, Route, NavLink } from "react-router-dom";
+import { Shop } from "./pages/Shop";
+import Logo from "./imgs/Dead_Cells_logo.png";
+import ShopIcon from "./imgs/cart-icon.png";
 function App() {
-	
+
 	return (
 		<div className="App">
-			<AllBrutalItemsImg/>
-			<AllSurvivalItemsImg/>
-			<AllTacticsItemsImg/>
+			<nav className="nav">
+				<img className="logo" src={Logo} alt="logo" />
+				<ul className="menu">
+					<li>
+						<NavLink to="/">Home</NavLink>
+					</li>
+					<li>
+						<NavLink to="/shop">Shop</NavLink>
+					</li>
+					<li>
+						<NavLink to="/cart">
+							<img
+								className="shop-icon"
+								src={ShopIcon}
+								alt="shop cart"
+							/>
+						</NavLink>
+					</li>
+				</ul>
+			</nav>
+
+			<Routes>
+				<Route path="/shop" element={<Shop />} />
+			</Routes>
 		</div>
 	);
 }

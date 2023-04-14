@@ -80,12 +80,12 @@ export const survivalItems = () => {
 export const allImg = (imgNames, subfolder) => {
 	// search for all the png imgs in specific folder
 	const survivalFolder = require.context(
-		"/src/imgs/survival",
+		"./imgs/survival",
 		false,
 		/\.png/
 	);
-	const brutalFolder = require.context("/src/imgs/brutality", false, /\.png/);
-	const tacticsFolder = require.context("/src/imgs/tactics", false, /\.png/);
+	const brutalFolder = require.context("./imgs/brutality", false, /\.png/);
+	const tacticsFolder = require.context("./imgs/tactics", false, /\.png/);
 	const paths = {
 		survival: survivalFolder,
 		brutality: brutalFolder,

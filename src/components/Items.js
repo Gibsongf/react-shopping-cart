@@ -1,20 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../components/Item.css";
-import CurrencyIcon from'../imgs/Gold_Currency_Icon.png'
+import CurrencyIcon from "../imgs/Gold_Currency_Icon.png";
 export const Product = (props) => {
 	const { name, description, imgSrc, price } = props;
 	const [quantity, setQuantity] = useState(0);
-	const divClicked = () => {
-		return;
-	};
+	const [wasClicked, setWasClicked] = useState(false);
+	const handleClick = (e) => {
+		const el = e.target.className
+		if(el === "item-img"){
+			setWasClicked(true)
+		}
+		if(el === 'close-window'){
+			setWasClicked(false)
+		}
+	}
+	const divClicked = (
+				<ItemSelected
+					btnClose={handleClick}
+					name={name}
+					description={description}
+					imgSrc={imgSrc}
+					price={price}
+					val={quantity}
+					setVal={setQuantity}
+				/>
+			);
+	
+	
 	// ?btn = add direct to the cart a props.addItem
 	// div.click => itemClicked()
 	return (
-		<div className="item">
+		<div className="item" onClick={handleClick}>
 			<img src={imgSrc} alt={name} className="item-img" />
 			<h4>{name}</h4>
-			<p><img src={CurrencyIcon} alt="gold-coin" />{price}</p>
-			{}
+			<p>
+				<img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
+				{price}
+			</p>
+			{wasClicked ? divClicked:''}
 		</div>
 	);
 };
@@ -44,21 +67,31 @@ export const ItemSelected = (props) => {
 	const changeQuantity = (e) => {
 		setVal(e.target.value);
 	};
+	
 	return (
 		<div id="pop-up">
+			<button
+					className="close-window"
+					onClick={props.btnClose}
+				>
+					X
+				</button>
 			<div id="pop-up-content">
-				<button className="close-window">X</button>
 				<img src={imgSrc} alt={name} className="item-img-select" />
 				<div className="item-info">
 					<h2>{name}</h2>
 					<p className="description">{description}</p>
-					<p>${price}</p>
+					<span className="price-container">
+						<img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
+						<p>{price}</p>
+					</span>
+					
 				</div>
 				<span>
 					<label htmlFor="quantity">
 						Quantity:
 						<input
-                            id="quantity"
+							id="quantity"
 							type="number"
 							min="1"
 							max="100"

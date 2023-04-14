@@ -1,17 +1,65 @@
-*{
+* {
     padding: 0;
     margin: 0;
-    
-    
-}
-#root{
-    background-image: url('../src/imgs/bk.jpg');
-    background-repeat:no-repeat;
-    background-size:cover;
-}
-.App{
-    
-    padding: 10px;
-    
+
+
 }
 
+#root {
+    background-image: url('../src/imgs/dc.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+
+}
+
+.App {
+    font-size: 1.2rem;
+}
+
+.nav {
+    background-image: url('../src/imgs/nav-bk.jpeg');
+    position: sticky;
+    top: 0;
+    background-color: rgba(209, 209, 209, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 400px;
+    height: 150px;
+}
+
+ul {
+    list-style: none;
+}
+
+.menu {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 2rem;
+}
+
+.shop-menu {
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.shop-icon {
+    width: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.active {
+    color: red;
+}
