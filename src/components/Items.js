@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../components/Item.css";
 import CurrencyIcon from "../imgs/Gold_Currency_Icon.png";
+import CloseIcon from '../imgs/alpha-x-circle-outline-custom.png'
 export const Product = (props) => {
 	const { name, description, imgSrc, price } = props;
 	const [quantity, setQuantity] = useState(0);
@@ -15,7 +16,7 @@ export const Product = (props) => {
 		}
 	}
 	const divClicked = (
-				<ItemSelected
+				<ProductSelected
 					btnClose={handleClick}
 					name={name}
 					description={description}
@@ -62,7 +63,7 @@ const Btns = (props) => {
 		</span>
 	);
 };
-export const ItemSelected = (props) => {
+export const ProductSelected = (props) => {
 	const { name, description, imgSrc, price, val, setVal } = props;
 	const changeQuantity = (e) => {
 		setVal(e.target.value);
@@ -70,12 +71,11 @@ export const ItemSelected = (props) => {
 	
 	return (
 		<div id="pop-up">
-			<button
+			<input	type="image"
 					className="close-window"
+					src={CloseIcon} alt="close-icon" 
 					onClick={props.btnClose}
-				>
-					X
-				</button>
+				/>
 			<div id="pop-up-content">
 				<img src={imgSrc} alt={name} className="item-img-select" />
 				<div className="item-info">

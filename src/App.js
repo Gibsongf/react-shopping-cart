@@ -4,6 +4,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import { Shop } from "./pages/Shop";
 import Logo from "./imgs/Dead_Cells_logo.png";
 import ShopIcon from "./imgs/cart-icon.png";
+import { Home } from "./pages/Home";
 function App() {
 
 	return (
@@ -31,6 +32,7 @@ function App() {
 
 			<Routes>
 				<Route path="/shop" element={<Shop />} />
+				<Route path="/" element={<Home />} />
 			</Routes>
 		</div>
 	);
