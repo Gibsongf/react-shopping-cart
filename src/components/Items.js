@@ -33,11 +33,12 @@ export const Product = (props) => {
 	return (
 		<div className="item" onClick={handleClick}>
 			<img src={imgSrc} alt={name} className="item-img" />
-			<h4>{name}</h4>
-			<p>
+			
+			<div className="price-name">
+				<h4>{name}</h4>
 				<img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
 				{price}
-			</p>
+			</div>
 			{wasClicked ? divClicked:''}
 		</div>
 	);

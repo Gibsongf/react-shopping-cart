@@ -4,24 +4,33 @@
 .item {
     font-size: 1.3rem;
     width: 250px;
+    border-radius: 14px;
     border: solid black 2px;
-    background-color: rgba(209, 209, 209, 0.4);
+    background-color: rgba(209, 209, 209, 0.6);
     text-align: center;
     display: flex;
     flex-direction: column;  
+    justify-content: center
 }
 .gold-icon{
     width: 20px;
     margin-left: 5px;
 }
 .item:hover{
-    background-color: rgba(209, 209, 209, 0.5);
+    background-color: rgba(209, 209, 209, 0.8);
 }
 
 .item-img{
     height: 250px;
     image-rendering: pixelated;
     padding: 15px;
+}
+.price-name {
+    border: solid 2px black;
+    border-radius: 25px;
+    margin: 6px;
+    padding: 7px;
+    background-color: white;
 }
 .item-img-select{
     height: 300px;

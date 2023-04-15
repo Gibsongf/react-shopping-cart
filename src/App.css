@@ -11,19 +11,19 @@
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-
+    
 
 }
 
 .App {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    
 }
 
 .nav {
-    background-image: url('../src/imgs/nav-bk.jpeg');
     position: sticky;
     top: 0;
-    background-color: rgba(209, 209, 209, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -32,7 +32,6 @@
 .logo {
     width: 600px;
     height: 150px;
-    padding-left: 30px;
 }
 
 ul {
@@ -46,17 +45,28 @@ ul {
     font-size: 2rem;
 }
 .home-content {
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-}
-.home-content img {
-    margin: 10px;
+    justify-items: center;
+    font-size: 1.3rem;
 }
 
+.gameplay-right{
+    grid-column: 3;
+    grid-row: 1;
+}
+.gameplay-left{
+    grid-column: 1;
+    grid-row: 1;
+}
+.about {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 15px;
+}
 .shop-menu {
     background-color: black;
     display: flex;
