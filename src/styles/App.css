@@ -6,18 +6,18 @@
 }
 
 #root {
-    background-image: url('../src/imgs/dc.jpg');
+    background-image: url('/src/imgs/dc.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    
+
 
 }
 
 .App {
     font-size: 1.1rem;
-    
+
 }
 
 .nav {
@@ -44,6 +44,7 @@ ul {
     justify-content: space-evenly;
     font-size: 2rem;
 }
+
 .home-content {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -54,19 +55,22 @@ ul {
     font-size: 1.3rem;
 }
 
-.gameplay-right{
+.gameplay-right {
     grid-column: 3;
     grid-row: 1;
 }
-.gameplay-left{
+
+.gameplay-left {
     grid-column: 1;
     grid-row: 1;
 }
+
 .about {
     grid-column: 2;
     grid-row: 1;
     padding: 15px;
 }
+
 .shop-menu {
     background-color: black;
     display: flex;
@@ -84,4 +88,5 @@ a {
 
 .active {
     color: red;
+    
 }

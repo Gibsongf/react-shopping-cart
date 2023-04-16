@@ -4,8 +4,8 @@ import {
 	tacticsItems,
 	allImg,
 } from "../getAllImgs.js";
-import { Product } from "./Items";
-import "./Products.css";
+import { Product } from "./Products.js";
+import "../styles/Products.css";
 
 export const AllProducts = () => {
 	const brutal = brutalItems();

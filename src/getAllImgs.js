@@ -79,11 +79,7 @@ export const survivalItems = () => {
 };
 export const allImg = (imgNames, subfolder) => {
 	// search for all the png imgs in specific folder
-	const survivalFolder = require.context(
-		"./imgs/survival",
-		false,
-		/\.png/
-	);
+	const survivalFolder = require.context("./imgs/survival", false, /\.png/);
 	const brutalFolder = require.context("./imgs/brutality", false, /\.png/);
 	const tacticsFolder = require.context("./imgs/tactics", false, /\.png/);
 	const paths = {
@@ -113,7 +109,7 @@ function getAllImgs(imgsFiles, imgsData) {
 				src: imgsFiles(imagesSrc[i]), //call to get the src
 				name: imgsData[sortedImgNames[i]][0],
 				description: imgsData[sortedImgNames[i]][1],
-                price:imgsData[sortedImgNames[i]][2],
+				price: imgsData[sortedImgNames[i]][2],
 				/* id: "card" + (imagesSrc.indexOf(key) + 1), */
 			})
 	);

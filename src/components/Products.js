@@ -1,45 +1,44 @@
 import { useState } from "react";
-import "../components/Item.css";
+import "../styles/Item.css";
 import CurrencyIcon from "../imgs/Gold_Currency_Icon.png";
-import CloseIcon from '../imgs/alpha-x-circle-outline-custom.png'
+import CloseIcon from "../imgs/close-icon.png";
 export const Product = (props) => {
 	const { name, description, imgSrc, price } = props;
 	const [quantity, setQuantity] = useState(0);
 	const [wasClicked, setWasClicked] = useState(false);
 	const handleClick = (e) => {
-		const el = e.target.className
-		if(el === "item-img"){
-			setWasClicked(true)
+		const el = e.target.className;
+		if (el === "item-img") {
+			setWasClicked(true);
 		}
-		if(el === 'close-window'){
-			setWasClicked(false)
+		if (el === "close-window") {
+			setWasClicked(false);
 		}
-	}
+	};
 	const divClicked = (
-				<ProductSelected
-					btnClose={handleClick}
-					name={name}
-					description={description}
-					imgSrc={imgSrc}
-					price={price}
-					val={quantity}
-					setVal={setQuantity}
-				/>
-			);
-	
-	
+		<ProductSelected
+			btnClose={handleClick}
+			name={name}
+			description={description}
+			imgSrc={imgSrc}
+			price={price}
+			val={quantity}
+			setVal={setQuantity}
+		/>
+	);
+
 	// ?btn = add direct to the cart a props.addItem
 	// div.click => itemClicked()
 	return (
-		<div className="item" onClick={handleClick}>
+		<div className="item" onClick={handleClick} name='item'>
 			<img src={imgSrc} alt={name} className="item-img" />
-			
+
 			<div className="price-name">
 				<h4>{name}</h4>
 				<img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
 				{price}
 			</div>
-			{wasClicked ? divClicked:''}
+			{wasClicked ? divClicked : ""}
 		</div>
 	);
 };
@@ -58,9 +57,9 @@ const Btns = (props) => {
 				value={val}
 				onChange={changeQuantity}
 			/>
-			{/* <button onClick={addToCart} className="addToCart">
+			<button  className="addToCart">
 				Add To Cart
-			</button> */}
+			</button>
 		</span>
 	);
 };
@@ -69,24 +68,29 @@ export const ProductSelected = (props) => {
 	const changeQuantity = (e) => {
 		setVal(e.target.value);
 	};
-	
+
 	return (
 		<div id="pop-up">
-			<input	type="image"
-					className="close-window"
-					src={CloseIcon} alt="close-icon" 
-					onClick={props.btnClose}
-				/>
+			<input
+				type="image"
+				className="close-window"
+				src={CloseIcon}
+				alt="close-icon"
+				onClick={props.btnClose}
+			/>
 			<div id="pop-up-content">
-				<img src={imgSrc} alt={name} className="item-img-select" />
+				<img src={imgSrc} alt='item-img-select'  className="item-img-select" />
 				<div className="item-info">
 					<h2>{name}</h2>
 					<p className="description">{description}</p>
 					<span className="price-container">
-						<img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
+						<img
+							className="gold-icon"
+							src={CurrencyIcon}
+							alt="gold-coin"
+						/>
 						<p>{price}</p>
 					</span>
-					
 				</div>
 				<span>
 					<label htmlFor="quantity">
