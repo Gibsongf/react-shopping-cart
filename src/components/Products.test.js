@@ -11,25 +11,18 @@ const ProductSetup = (props) => {
 	const price = 2000;
 	return (
 		<Product
-			btnClose={props.btnClose}
 			name={name}
 			description={description}
 			price={price}
 			imgSrc={Src}
-			// val={quantity}
-			setVal={props.setVal}
+			
 		/>
 	);
 };
-const setup = () => {
-    const btnCloseMock = jest.fn();
-    const setValMock = jest.fn();
-    render(<ProductSetup setVal={setValMock} btnClose={btnCloseMock} />);
-};
+
 describe("open and close window of the product", () => {
-	
 	it("pop up on click", () => {
-        setup();
+        render(<ProductSetup  />);
 		const img = screen.getByRole("img", { name: "The Alchemic Carbine" });
 		fireEvent.click(img);
 		const imgSelected = screen.getByRole("img", {
@@ -38,7 +31,7 @@ describe("open and close window of the product", () => {
 		expect(imgSelected.className).toBe("item-img-select");
 	});
 	it("close on click", () => {
-        setup();
+        render(<ProductSetup  />);
 		const img = screen.getByRole("img", { name: "The Alchemic Carbine" });
 		fireEvent.click(img);
 		const imgSelected = () =>
@@ -51,3 +44,4 @@ describe("open and close window of the product", () => {
 		expect(imgSelected()).toBe(null);
 	});
 });
+
