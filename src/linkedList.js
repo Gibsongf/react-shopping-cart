@@ -19,8 +19,6 @@ export class CreateLinkedList {
 			return this.iterationLinkList(lst.NextNode, indx - 1);
 		}
 	}
-	/*  contains(value) returns true if the passed in value
-        is in the list and otherwise returns false.*/
 
 	deleteFromArrValues(value) {
 		const deleted = this.itemsName.indexOf(value);
@@ -35,8 +33,7 @@ export class CreateLinkedList {
 		this.deleteFromArrValues(value);
 		this.size -= 1;
 	}
-	/*  find(value) returns the index
-        of the node containing value, or null if not found.*/
+
 	search(value) {
 		let hasIt = this.checkValue(this.linkLst, value);
 		if (Array.isArray(hasIt)) {
@@ -46,22 +43,17 @@ export class CreateLinkedList {
 		}
 	}
 
-	checkValue(lst, value, prevLst, indx = 0) {
+	checkValue(node, value, prevNode, indx = 0) {
 		// console.log(value,lst.value.name);
-		if (lst.value.name === value) {
-			return [true, indx, lst, prevLst];
+		if (node.value.name === value) {
+			return [true, indx, node, prevNode];
 		}
-		if (lst.NextNode === null) {
+		if (node.NextNode === null) {
 			return false;
 		} else {
 			indx++;
-			return this.checkValue(lst.NextNode, value, lst, indx);
+			return this.checkValue(node.NextNode, value, node, indx);
 		}
-	}
-
-	toString() {
-		let str = this.itemsName.map((v) => "(" + String(v) + ")").reverse();
-		return str.join(" --> ");
 	}
 
 	/*  append(value) adds a new node
@@ -69,9 +61,8 @@ export class CreateLinkedList {
 	append(data) {
 		const node = this.dataToNode(data);
 		this.itemsName.push(data.name);
-		// this.itemsName.reverse();
-		// this.itemsName.reverse();
-		if (Object.values(this.linkLst).length < 1) {
+		// console.log(node)
+		if (this.size < 1) {
 			this.prepend(node);
 		} else {
 			let lastItem = this.iterationLinkList(this.linkLst, this.size);
@@ -80,9 +71,9 @@ export class CreateLinkedList {
 			this.size += 1;
 		}
 	}
-	/*  prepend(value) adds a new node containing
-        value to the start of the list  */
+
 	prepend(node) {
+		// console.log(node)
 		if (Object.values(this.linkLst).length <= 1) {
 			this.linkLst.value = node.value;
 			this.linkLst.NextNode = null;
@@ -94,5 +85,3 @@ export class CreateLinkedList {
 		}
 	}
 }
-
-

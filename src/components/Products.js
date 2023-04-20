@@ -3,8 +3,8 @@ import "../styles/Item.css";
 import CurrencyIcon from "../imgs/Gold_Currency_Icon.png";
 import CloseIcon from "../imgs/close-icon.png";
 export const Product = (props) => {
-	const { name, description, imgSrc, price } = props;
-	const [quantity, setQuantity] = useState(0);
+	const { name, description, imgSrc, price, addToCart } = props;
+	const [quantity, setQuantity] = useState(1);
 	const [wasClicked, setWasClicked] = useState(false);
 	const handleClick = (e) => {
 		const el = e.target.className;
@@ -18,6 +18,7 @@ export const Product = (props) => {
 	const divClicked = (
 		<ProductSelected
 			btnClose={handleClick}
+			addToCart={addToCart}
 			name={name}
 			description={description}
 			imgSrc={imgSrc}
@@ -27,12 +28,9 @@ export const Product = (props) => {
 		/>
 	);
 
-	// ?btn = add direct to the cart a props.addItem
-	// div.click => itemClicked()
 	return (
-		<div className="item" onClick={handleClick} name='item'>
+		<div className="item" onClick={handleClick} name="item">
 			<img src={imgSrc} alt={name} className="item-img" />
-
 			<div className="price-name">
 				<h4>{name}</h4>
 				<img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
@@ -42,31 +40,15 @@ export const Product = (props) => {
 		</div>
 	);
 };
-const Btns = (props) => {
-	const { val, handler, addToCart } = props.states;
-	const changeQuantity = (e) => {
-		handler(e.target.value);
-	};
-	return (
-		<span>
-			<input
-				type="number"
-				min="1"
-				max="100"
-				step="1"
-				value={val}
-				onChange={changeQuantity}
-			/>
-			<button  className="addToCart">
-				Add To Cart
-			</button>
-		</span>
-	);
-};
+
 export const ProductSelected = (props) => {
-	const { name, description, imgSrc, price, val, setVal } = props;
+	const { name, description, imgSrc, price, val, setVal, addToCart } = props;
 	const changeQuantity = (e) => {
 		setVal(e.target.value);
+	};
+	const sendToCart = () => {
+		const product = { name, description, price, quantity: Number(val) };
+		addToCart(product);
 	};
 
 	return (
@@ -79,7 +61,11 @@ export const ProductSelected = (props) => {
 				onClick={props.btnClose}
 			/>
 			<div id="pop-up-content">
-				<img src={imgSrc} alt='item-img-select'  className="item-img-select" />
+				<img
+					src={imgSrc}
+					alt="item-img-select"
+					className="item-img-select"
+				/>
 				<div className="item-info">
 					<h2>{name}</h2>
 					<p className="description">{description}</p>
@@ -105,7 +91,9 @@ export const ProductSelected = (props) => {
 							onChange={changeQuantity}
 						/>
 					</label>
-					<button className="addToCart">Add To Cart</button>
+					<button onClick={sendToCart} className="addToCart">
+						Add To Cart
+					</button>
 				</span>
 			</div>
 		</div>

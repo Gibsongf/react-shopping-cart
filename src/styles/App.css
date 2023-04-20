@@ -43,6 +43,8 @@ ul {
     display: flex;
     justify-content: space-evenly;
     font-size: 2rem;
+    color: white;
+    align-items: center;
 }
 
 .home-content {
@@ -77,10 +79,16 @@ ul {
     justify-content: space-evenly;
 }
 
-.shop-icon {
-    width: 50px;
-}
+.shop-icon { 
+    width: 45px;
 
+}
+.cart-icon-nav {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+
+}
 a {
     text-decoration: none;
     color: white;
@@ -88,5 +96,5 @@ a {
 
 .active {
     color: red;
-    
+
 }

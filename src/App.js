@@ -4,8 +4,13 @@ import { Shop } from "./pages/Shop";
 import Logo from "./imgs/Dead_Cells_logo.png";
 import ShopIcon from "./imgs/cart-icon.png";
 import { Home } from "./pages/Home";
- 
+import { Cart } from "./components/Cart"; 
+import { useState } from "react";
 function App() {
+	
+	const [quantity,setQuantity] = useState(0)
+	const cart = Cart(setQuantity);
+	
 	return (
 		<div className="App">
 			<nav className="nav">
@@ -18,19 +23,26 @@ function App() {
 						<NavLink to="/shop">Shop</NavLink>
 					</li>
 					<li>
-						{/* <NavLink to="/cart"> */}
+						<NavLink  className="cart-icon-nav" to="/cart">
+							
 							<img
 								className="shop-icon"
 								src={ShopIcon}
 								alt="shop cart"
 							/>
-						{/* </NavLink> */}
+							{quantity}
+						</NavLink>
 					</li>
+					
 				</ul>
 			</nav>
 
 			<Routes>
-				<Route path="/shop" element={<Shop />} />
+			<Route path="/shop" >
+					<Route index element={<Shop addToCart={cart.updateStorage}/>}/>
+
+				</Route>
+				{/* <Route path="/shop" element={<Shop addToCart={cart.updateLinkList}/>} /> */}
 				<Route path="/" element={<Home />} />
 			</Routes>
 		</div>

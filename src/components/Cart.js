@@ -1,10 +1,26 @@
+import { useEffect, useState } from "react";
 
-import { useState } from "react"
-import { CreateLinkedList } from "../linkedList"
-const Cart = () => {
-    const ll = new CreateLinkedList();
-    const [stateLst, setLinkList] = useState(ll.linkLst);
-    const[totalPrice,setTotal] = useState([])
-	const[allItemQuantity,setItemQuantity] = useState([])
-    
-}
+export const Cart = (setQuantity) => {
+	const [storage, setStorage] = useState({});
+
+	const updateStorage = (product) => {
+		setStorage({ ...storage, [product.name]: product });
+	};
+
+	useEffect(() => {
+		const sumQuantity = () => {
+			const keys = Object.keys(storage);
+			const quantity = keys.map((k) => storage[k].quantity);
+			const all = quantity.reduce(
+				(total, currentNum) => total + currentNum,
+				0
+			);
+			return all;
+		};
+		setQuantity(sumQuantity());
+	}, [storage]);// eslint-disable-line react-hooks/exhaustive-deps
+	const deleteItem = (e) => {
+		
+	};
+	return { updateStorage };
+};
