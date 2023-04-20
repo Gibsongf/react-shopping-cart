@@ -4,7 +4,7 @@ import { Product } from "./Products";
 import Src from "../imgs/tactics/Alchemic_Carbine_Icon.png";
 import { Cart } from "./Cart";
 
-const ProductSetup = (props) => {
+const ProductSetup = () => {
 	const [quantity, setQuantity] = useState(0);
 	const cart = Cart(setQuantity);
 	const description = "description";

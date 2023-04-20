@@ -6,6 +6,7 @@ import ShopIcon from "./imgs/cart-icon.png";
 import { Home } from "./pages/Home";
 import { Cart } from "./components/Cart"; 
 import { useState } from "react";
+import { Order } from "./pages/Orders";
 function App() {
 	
 	const [quantity,setQuantity] = useState(0)
@@ -38,6 +39,7 @@ function App() {
 			</nav>
 
 			<Routes>
+			<Route path="/cart" element={<Order listOrders={cart.storage}/>}/>
 			<Route path="/shop" >
 					<Route index element={<Shop addToCart={cart.updateStorage}/>}/>
 

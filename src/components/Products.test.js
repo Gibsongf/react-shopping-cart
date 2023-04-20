@@ -1,9 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
-import userEvent from "@testing-library/user-event";
 import { Product } from "./Products";
 import Src from "../imgs/tactics/Alchemic_Carbine_Icon.png";
-import { Cart } from "./Cart";
 const ProductSetup = () => {
 	const name = "The Alchemic Carbine";
 	const description =
@@ -17,11 +15,6 @@ const ProductSetup = () => {
 			imgSrc={Src}
 		/>
 	);
-};
-const CartSetup = () => {
-	
-	const img = screen.getByRole("img", { name: "The Alchemic Carbine" });
-	fireEvent.click(img);
 };
 
 describe("open and close window of the product", () => {

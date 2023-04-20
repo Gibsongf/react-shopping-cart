@@ -47,7 +47,7 @@ export const ProductSelected = (props) => {
 		setVal(e.target.value);
 	};
 	const sendToCart = () => {
-		const product = { name, description, price, quantity: Number(val) };
+		const product = { name, description, price, quantity: Number(val),imageSrc:imgSrc };
 		addToCart(product);
 	};
 

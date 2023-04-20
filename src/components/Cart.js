@@ -19,8 +19,6 @@ export const Cart = (setQuantity) => {
 		};
 		setQuantity(sumQuantity());
 	}, [storage]);// eslint-disable-line react-hooks/exhaustive-deps
-	const deleteItem = (e) => {
-		
-	};
-	return { updateStorage };
+	
+	return { updateStorage,storage };
 };
