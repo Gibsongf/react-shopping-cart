@@ -7,10 +7,11 @@ import { Home } from "./pages/Home";
 import { Cart } from "./components/Cart";
 import { useState } from "react";
 import { Order } from "./pages/Orders";
+import { ProductSelected } from "./components/Products";
 function App() {
 	const [quantity, setQuantity] = useState(0);
 	const cart = Cart(setQuantity);
-
+	const [selectItem,setSelectItem]=useState({});
 	return (
 		<div className="App">
 			<nav className="nav">
@@ -37,14 +38,15 @@ function App() {
 
 			<Routes>
 				<Route
-					path="/cart"
+					path="cart"
 					element={<Order listOrders={cart.storage} />}
 				/>
-				<Route path="/shop">
+				<Route path="shop/*">
 					<Route
 						index
-						element={<Shop addToCart={cart.updateStorage} />}
+						element={<Shop addToCart={cart.updateStorage} setItemDetail={setSelectItem}/>}
 					/>
+					<Route path=":id" element={<ProductSelected {...selectItem} addToCart={cart.updateStorage} selectedData={selectItem} />}/>
 				</Route>
 				<Route path="/" element={<Home />} />
 			</Routes>

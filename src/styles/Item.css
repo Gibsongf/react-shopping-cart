@@ -9,7 +9,8 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
+    color: black;
 }
 
 .gold-icon {
@@ -22,7 +23,7 @@
 }
 
 .item-img {
-    height: 250px;
+    height: 25vh;
     image-rendering: pixelated;
     padding: 15px;
 }
@@ -47,7 +48,7 @@
 }
 
 #pop-up-content p {
-    font-size: 1.25rem;
+    font-size: 1.25em;
     font-weight: 520;
 
 }
@@ -73,6 +74,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    
 }
 
 .close-window {
