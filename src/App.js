@@ -4,14 +4,13 @@ import { Shop } from "./pages/Shop";
 import Logo from "./imgs/Dead_Cells_logo.png";
 import ShopIcon from "./imgs/cart-icon.png";
 import { Home } from "./pages/Home";
-import { Cart } from "./components/Cart"; 
+import { Cart } from "./components/Cart";
 import { useState } from "react";
 import { Order } from "./pages/Orders";
 function App() {
-	
-	const [quantity,setQuantity] = useState(0)
+	const [quantity, setQuantity] = useState(0);
 	const cart = Cart(setQuantity);
-	
+
 	return (
 		<div className="App">
 			<nav className="nav">
@@ -24,8 +23,7 @@ function App() {
 						<NavLink to="/shop">Shop</NavLink>
 					</li>
 					<li>
-						<NavLink  className="cart-icon-nav" to="/cart">
-							
+						<NavLink className="cart-icon-nav" to="/cart">
 							<img
 								className="shop-icon"
 								src={ShopIcon}
@@ -34,17 +32,20 @@ function App() {
 							{quantity}
 						</NavLink>
 					</li>
-					
 				</ul>
 			</nav>
 
 			<Routes>
-			<Route path="/cart" element={<Order listOrders={cart.storage}/>}/>
-			<Route path="/shop" >
-					<Route index element={<Shop addToCart={cart.updateStorage}/>}/>
-
+				<Route
+					path="/cart"
+					element={<Order listOrders={cart.storage} />}
+				/>
+				<Route path="/shop">
+					<Route
+						index
+						element={<Shop addToCart={cart.updateStorage} />}
+					/>
 				</Route>
-				{/* <Route path="/shop" element={<Shop addToCart={cart.updateLinkList}/>} /> */}
 				<Route path="/" element={<Home />} />
 			</Routes>
 		</div>

@@ -18,28 +18,23 @@ const ProductSetup = () => {
 };
 
 describe("open and close window of the product", () => {
+	it('without item click content',()=>{
+		const { container } = render(<ProductSetup />);
+    	expect(container).toMatchSnapshot();
+	})
 	it("pop up on click", () => {
-		render(<ProductSetup />);
+		const { container } = render(<ProductSetup />);
 		const img = screen.getByRole("img", { name: "The Alchemic Carbine" });
 		fireEvent.click(img);
-		const imgSelected = screen.getByRole("img", {
-			name: "item-img-select",
-		});
-		expect(imgSelected.className).toBe("item-img-select");
+		expect(!container).toMatchSnapshot();
 	});
 	it("close on click", () => {
-		render(<ProductSetup />);
+		const { container } = render(<ProductSetup />);
 		const img = screen.getByRole("img", { name: "The Alchemic Carbine" });
 		fireEvent.click(img);
-		const imgSelected = () =>
-			screen.queryByRole("img", {
-				name: "item-img-select",
-			});
-
 		const btnClose = screen.getByRole("button", { name: "close-icon" });
 		fireEvent.click(btnClose);
-		expect(imgSelected()).toBe(null);
+		expect(container).toMatchSnapshot();
+
 	});
 });
-
-

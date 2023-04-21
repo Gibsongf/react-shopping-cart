@@ -3,7 +3,7 @@ import "../styles/ProductInCart.css";
 
 export const OrderProducts = (props) => {
 	const { name, description, imgSrc, price, quantity } = props;
-	
+
 	return (
 		<div className="product-info">
 			<img src={imgSrc} alt="product-img" className="product-img" />

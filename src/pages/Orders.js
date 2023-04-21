@@ -1,4 +1,3 @@
-
 import { OrderProducts } from "../components/ProductInCart";
 import CurrencyIcon from "../imgs/Gold_Currency_Icon.png";
 
@@ -10,10 +9,10 @@ export const Order = (props) => {
 		const total = allPrices.reduce((t, currentNum) => t + currentNum, 0);
 		return total;
 	};
-	
+
 	return (
 		<div className="orders">
-			<h1 className="my-cart">My Cart ({sum('quantity')} items)</h1>
+			<h1 className="my-cart">My Cart ({sum("quantity")} items)</h1>
 
 			<div className="tag">
 				<h4>Product</h4>
@@ -22,25 +21,24 @@ export const Order = (props) => {
 				<h4>Unity Price</h4>
 			</div>
 			<div className="container-products">
-			{productNames.map((name) => {
-				return (
-					<OrderProducts
-						key={name}
-						imgSrc={listOrders[name].imageSrc}
-						description={listOrders[name].description}
-						name={name}
-						price={listOrders[name].price} 
-						quantity={listOrders[name].quantity}
-					/>
-				);
-			})}
+				{productNames.map((name) => {
+					return (
+						<OrderProducts
+							key={name}
+							imgSrc={listOrders[name].imageSrc}
+							description={listOrders[name].description}
+							name={name}
+							price={listOrders[name].price}
+							quantity={listOrders[name].quantity}
+						/>
+					);
+				})}
 			</div>
 			<span className="total">
 				Total:
 				<img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
-				<p>{sum('total')}</p>
+				<p>{sum("total")}</p>
 			</span>
-
 		</div>
 	);
 };

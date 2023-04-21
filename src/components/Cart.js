@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 export const Cart = (setQuantity) => {
 	const [storage, setStorage] = useState({});
 	const individualProductTotal = (product) => {
-		product.total = Number(product.quantity) * Number(product.price)
-	}
+		product.total = Number(product.quantity) * Number(product.price);
+	};
 
 	const updateStorage = (product) => {
-		setStorage(()=>{
-			individualProductTotal(product)
-			return { ...storage, [product.name]: product }
+		setStorage(() => {
+			individualProductTotal(product);
+			return { ...storage, [product.name]: product };
 		});
 	};
 
@@ -23,9 +23,9 @@ export const Cart = (setQuantity) => {
 			);
 			return all;
 		};
-		console.log(storage)
+		console.log(storage);
 		setQuantity(sumQuantity());
-	}, [storage]);// eslint-disable-line react-hooks/exhaustive-deps
-	
-	return { updateStorage,storage,setStorage };
+	}, [storage]); // eslint-disable-line react-hooks/exhaustive-deps
+
+	return { updateStorage, storage };
 };
