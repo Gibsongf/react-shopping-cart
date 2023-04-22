@@ -1,9 +1,9 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React, { useState } from "react";
-import { Product } from "./Products";
+import { Product } from "../components/Products";
 import Src from "../imgs/tactics/Alchemic_Carbine_Icon.png";
-import { Cart } from "./Cart";
-
+import { Cart } from "../components/Cart";
+// simulate the cart page and if is being correct saved products data
 const ProductSetup = () => {
 	const [quantity, setQuantity] = useState(0);
 	const cart = Cart(setQuantity);
@@ -37,7 +37,7 @@ describe("Cart quantity, total and stored products", () => {
 		});
 		fireEvent.click(product1);
 		const btnAdd = () =>
-			screen.getByRole("button", { name: "Add To Cart" });
+			screen.getByRole("button", { name: "ADD TO CART" });
 		const showQuantity = screen.getByRole("heading", {
 			name: /Quantity:/i,
 		});
@@ -51,13 +51,15 @@ describe("Cart quantity, total and stored products", () => {
 		const product3 = screen.getByRole("img", { name: "p3" });
 		const showQuantity = () =>
 			screen.getByRole("heading", { name: /Quantity:/i });
+
 		const btnAdd = () =>
-			screen.getAllByRole("button", { name: "Add To Cart" });
+			screen.getAllByRole("button", { name: "ADD TO CART" });
+
 		fireEvent.click(product2);
 		fireEvent.click(btnAdd()[0]);
-		expect(showQuantity().textContent).toBe("Quantity:1");
+		expect(showQuantity().textContent).toBe("Quantity: 1");
 		fireEvent.click(product3);
 		fireEvent.click(btnAdd()[1]);
-		expect(showQuantity().textContent).toBe("Quantity:2");
+		expect(showQuantity().textContent).toBe("Quantity: 2");
 	});
 });

@@ -1,24 +1,28 @@
 * {
     padding: 0;
     margin: 0;
-
+}
+@font-face {
+    font-family: "main-pixelated";
+    src: url("/src/fonts/rainyhearts.woff") format("woff"),
+    url("/src/fonts/rainyhearts.woff2") format("woff2");;
+}
+.App {
+    padding-bottom: 10px;
 
 }
 
 #root {
-    background-image: url('/src/imgs/dc.jpg');
+    background-image: url('/src/imgs/main-bk.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-
-
-}
-
-.App {
     font-size: 1.1rem;
-
+    font-family: "main-pixelated";
 }
+
+
 
 .nav {
     position: sticky;
@@ -47,31 +51,7 @@ ul {
     align-items: center;
 }
 
-.home-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    justify-items: center;
-    font-size: 1.3rem;
-}
 
-.gameplay-right {
-    grid-column: 3;
-    grid-row: 1;
-}
-
-.gameplay-left {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.about {
-    grid-column: 2;
-    grid-row: 1;
-    padding: 15px;
-}
 
 .shop-menu {
     background-color: black;
@@ -79,16 +59,18 @@ ul {
     justify-content: space-evenly;
 }
 
-.shop-icon { 
+.shop-icon {
     width: 45px;
 
 }
+
 .cart-icon-nav {
     display: flex;
     align-items: center;
     font-size: 1.5rem;
 
 }
+
 a {
     text-decoration: none;
     color: white;

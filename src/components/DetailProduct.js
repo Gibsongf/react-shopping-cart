@@ -1,54 +1,50 @@
 import { useState } from "react";
-import "../styles/Item.css";
+import "../styles/DetailProduct.css";
 import CurrencyIcon from "../imgs/Gold_Currency_Icon.png";
-import CloseIcon from "../imgs/close-icon.png";
+import BackIcon from "../imgs/go-back.png";
 import { NavLink } from "react-router-dom";
 
-
-export const ProductSelected = (props) => {
-	console.log(props)
+export const ProductDetails = (props) => {
 	const { name, description, imgSrc, price, addToCart } = props;
-	// const { name, description, imgSrc, price,  addToCart } = props.selectedData;
-	
-	const[val,setVal] = useState(1)
+	const [val, setVal] = useState(1);
 	const changeQuantity = (e) => {
 		setVal(e.target.value);
 	};
 	const sendToCart = () => {
-		const product = { name, description, price, quantity: Number(val),imageSrc:imgSrc };
+		const product = {
+			name,
+			description,
+			price,
+			quantity: Number(val),
+			imageSrc: imgSrc,
+		};
 		addToCart(product);
 	};
 
 	return (
-		<div id="pop-up">
-			<input
-				type="image"
-				className="close-window"
-				src={CloseIcon}
-				alt="close-icon"
-				
-			/>
-			<div id="pop-up-content">
+		<>
+			<NavLink to="/shop">
+				<img className="back" src={BackIcon} alt="back-icon" />
+			</NavLink>
+			<div className="content">
 				<img
 					src={imgSrc}
 					alt="item-img-select"
 					className="item-img-select"
 				/>
-				<div className="item-info">
-					<h2>{name}</h2>
-					<p className="description">{description}</p>
-					<span className="price-container">
-						<img
-							className="gold-icon"
-							src={CurrencyIcon}
-							alt="gold-coin"
-						/>
-						<p>{price}</p>
-					</span>
-				</div>
-				<span>
+				<h2>{name}</h2>
+				<p className="description">{description}</p>
+				<span className="price-container">
+					<img
+						className="gold-icon"
+						src={CurrencyIcon}
+						alt="gold-coin"
+					/>
+					<p>{price}</p>
+				</span>
+				<div className="add-quantity-cart">
 					<label htmlFor="quantity">
-						Quantity:
+						Quantity:{' '} 
 						<input
 							id="quantity"
 							type="number"
@@ -60,10 +56,10 @@ export const ProductSelected = (props) => {
 						/>
 					</label>
 					<button onClick={sendToCart} className="addToCart">
-						Add To Cart
+                        ADD TO CART
 					</button>
-				</span>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };

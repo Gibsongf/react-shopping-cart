@@ -1,0 +1,76 @@
+/* a custom font is need here */
+
+@font-face {
+    font-family: "main-pixelated";
+    src: url("/src/fonts/rainyhearts.woff") format("woff"),
+    url("/src/fonts/rainyhearts.woff2") format("woff2");;
+}
+.item-img-select {
+    height: 300px;
+    image-rendering: pixelated;
+    border: yellow solid 5px;
+    padding: 15px;
+}
+
+.close-window {
+    width: 24px;
+}
+
+.content p {
+    font-size: 1.25em;
+    font-weight: bold;
+
+}
+.gold-icon {
+    width: 25px;
+}
+
+
+.content {
+    margin: 2% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    background-color: #ecb1ce;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    
+}
+.addToCart{
+    width: 50%;
+    font-family: "main-pixelated";
+    font-weight: bold;
+    font-size: 1em;
+
+}
+
+.back {
+    width: 5%;
+    height: auto;
+}
+
+.add-quantity-cart {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-weight: bold;
+
+}
+
+input[type='number'] {
+    width: 50px;
+}
+
+
+.price-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}

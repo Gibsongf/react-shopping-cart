@@ -7,11 +7,11 @@ import { Home } from "./pages/Home";
 import { Cart } from "./components/Cart";
 import { useState } from "react";
 import { Order } from "./pages/Orders";
-import { ProductSelected } from "./components/Products";
+import { ProductDetails } from "./components/DetailProduct";
 function App() {
 	const [quantity, setQuantity] = useState(0);
 	const cart = Cart(setQuantity);
-	const [selectItem,setSelectItem]=useState({});
+	const [selectItem, setSelectItem] = useState({});
 	return (
 		<div className="App">
 			<nav className="nav">
@@ -44,9 +44,23 @@ function App() {
 				<Route path="shop/*">
 					<Route
 						index
-						element={<Shop addToCart={cart.updateStorage} setItemDetail={setSelectItem}/>}
+						element={
+							<Shop
+								addToCart={cart.updateStorage}
+								setItemDetail={setSelectItem}
+							/>
+						}
 					/>
-					<Route path=":id" element={<ProductSelected {...selectItem} addToCart={cart.updateStorage} selectedData={selectItem} />}/>
+					<Route
+						path=":id"
+						element={
+							<ProductDetails
+								{...selectItem}
+								addToCart={cart.updateStorage}
+								
+							/>
+						}
+					/>
 				</Route>
 				<Route path="/" element={<Home />} />
 			</Routes>

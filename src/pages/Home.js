@@ -1,6 +1,6 @@
 import Gameplay from "../imgs/gameplay.gif";
 import Gameplay2 from "../imgs/gameplay2.gif";
-
+import '../styles/Home.css'
 export const Home = () => {
 	return (
 		<div className="home-content">
