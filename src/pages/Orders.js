@@ -11,7 +11,7 @@ export const Order = (props) => {
 		const total = allPrices.reduce((t, currentNum) => t + currentNum, 0);
 		return total;
 	};
-	const [total, setTotal] = useState(sum("total"));
+	
 	let pageBackGround = {};
 	if (uniqueProducts.length < 2) {
 		pageBackGround = { height: "100vh" };
@@ -44,7 +44,7 @@ export const Order = (props) => {
 			<span className="total">
 				Total:
 				<img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
-				<p>{total}</p>
+				<p>{sum("total")}</p>
 			</span>
 		</div>
 	);
