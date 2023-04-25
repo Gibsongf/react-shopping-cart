@@ -1,17 +1,23 @@
+import { useState } from "react";
 import { OrderProducts } from "../components/ProductInCart";
 import CurrencyIcon from "../imgs/Gold_Currency_Icon.png";
 
 export const Order = (props) => {
 	const { listOrders } = props;
-	const productNames = Object.keys(listOrders);
+	const uniqueProducts = Object.keys(listOrders);
+	const [cartItems, setCartItems] = useState(listOrders);
 	const sum = (tag) => {
-		const allPrices = productNames.map((n) => listOrders[n][tag]);
+		const allPrices = uniqueProducts.map((n) => cartItems[n][tag]);
 		const total = allPrices.reduce((t, currentNum) => t + currentNum, 0);
 		return total;
 	};
-
+	const [total, setTotal] = useState(sum("total"));
+	let pageBackGround = {};
+	if (uniqueProducts.length < 2) {
+		pageBackGround = { height: "100vh" };
+	}
 	return (
-		<div className="orders">
+		<div className="orders" style={pageBackGround}>
 			<h1 className="my-cart">My Cart ({sum("quantity")} items)</h1>
 
 			<div className="tag">
@@ -21,7 +27,7 @@ export const Order = (props) => {
 				<h4>Unity Price</h4>
 			</div>
 			<div className="container-products">
-				{productNames.map((name) => {
+				{uniqueProducts.map((name) => {
 					return (
 						<OrderProducts
 							key={name}
@@ -30,6 +36,7 @@ export const Order = (props) => {
 							name={name}
 							price={listOrders[name].price}
 							quantity={listOrders[name].quantity}
+							changeCart={setCartItems}
 						/>
 					);
 				})}
@@ -37,7 +44,7 @@ export const Order = (props) => {
 			<span className="total">
 				Total:
 				<img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
-				<p>{sum("total")}</p>
+				<p>{total}</p>
 			</span>
 		</div>
 	);

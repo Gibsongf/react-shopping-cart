@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`open and close window of the product renders product details 1`] = `
+<div>
+  <div
+    class="content"
+  >
+    <img
+      alt="item-img-select"
+      class="item-img-select"
+      src="Alchemic_Carbine_Icon.png"
+    />
+    <h2>
+      The Alchemic Carbine
+    </h2>
+    <p
+      class="description"
+    >
+      Crossbow-type ranged weapon which poisons enemies hit by its bolts.
+    </p>
+    <span
+      class="price-container"
+    >
+      <img
+        alt="gold-coin"
+        class="gold-icon"
+        src="Gold_Currency_Icon.png"
+      />
+      <p>
+        2000
+      </p>
+    </span>
+    <div
+      class="add-quantity-cart"
+    >
+      <label
+        for="quantity"
+      >
+        Quantity:
+         
+        <input
+          id="quantity"
+          max="100"
+          min="1"
+          step="1"
+          type="number"
+          value="1"
+        />
+      </label>
+      <button
+        class="addToCart"
+      >
+        ADD TO CART
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -3,8 +3,10 @@
 @font-face {
     font-family: "main-pixelated";
     src: url("/src/fonts/rainyhearts.woff") format("woff"),
-    url("/src/fonts/rainyhearts.woff2") format("woff2");;
+        url("/src/fonts/rainyhearts.woff2") format("woff2");
+    ;
 }
+
 .item-img-select {
     height: 300px;
     image-rendering: pixelated;
@@ -21,6 +23,7 @@
     font-weight: bold;
 
 }
+
 .gold-icon {
     width: 25px;
 }
@@ -39,9 +42,10 @@
     align-items: center;
     text-align: center;
     gap: 10px;
-    
+
 }
-.addToCart{
+
+.addToCart {
     width: 50%;
     font-family: "main-pixelated";
     font-weight: bold;

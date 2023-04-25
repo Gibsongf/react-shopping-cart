@@ -18,7 +18,7 @@
     grid-template-columns: repeat(4, minmax(250px, 1fr));
     align-items: center;
     justify-items: center;
-    padding-bottom: 25px;
+    padding: 25px;
     font-weight: bold;
     font-size: 1.2em;
 }
@@ -69,6 +69,7 @@
 
 .product-img {
     height: 200px;
+    /* width: 14vw; */
     image-rendering: pixelated;
-    padding: 25px;
+    /* padding: 25px; */
 }

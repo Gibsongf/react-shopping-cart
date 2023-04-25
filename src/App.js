@@ -57,7 +57,6 @@ function App() {
 							<ProductDetails
 								{...selectItem}
 								addToCart={cart.updateStorage}
-								
 							/>
 						}
 					/>

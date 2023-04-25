@@ -20,12 +20,14 @@ export const ProductDetails = (props) => {
 		};
 		addToCart(product);
 	};
-
+	const GoBack = (
+		<NavLink to="/shop">
+			<img className="back" src={BackIcon} alt="back-icon" />
+		</NavLink>
+	);
 	return (
 		<>
-			<NavLink to="/shop">
-				<img className="back" src={BackIcon} alt="back-icon" />
-			</NavLink>
+			{props.test ? "" : GoBack}
 			<div className="content">
 				<img
 					src={imgSrc}
@@ -44,7 +46,7 @@ export const ProductDetails = (props) => {
 				</span>
 				<div className="add-quantity-cart">
 					<label htmlFor="quantity">
-						Quantity:{' '} 
+						Quantity:{" "}
 						<input
 							id="quantity"
 							type="number"
@@ -56,7 +58,7 @@ export const ProductDetails = (props) => {
 						/>
 					</label>
 					<button onClick={sendToCart} className="addToCart">
-                        ADD TO CART
+						ADD TO CART
 					</button>
 				</div>
 			</div>
