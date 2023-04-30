@@ -4,29 +4,19 @@
     margin: 10px;
     margin-bottom: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
+    justify-items: center;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    justify-items: center;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
+.home-content img {
+    width: 40vw;
+    padding: 10px;
 
-.gameplay-right {
-    grid-column: 3;
-    grid-row: 1;
-    width: 30vw;
-}
-
-.gameplay-left {
-    grid-column: 1;
-    grid-row: 1;
-    width: 30vw;
 }
 
 .about {
-    grid-column: 2;
     grid-row: 1;
-    padding: 15px;
-    width: 100%;
+    padding: 45px;
+    text-align: center;
 }

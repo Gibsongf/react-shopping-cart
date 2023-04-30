@@ -4,13 +4,15 @@ import "../styles/Home.css";
 export const Home = () => {
 	return (
 		<div className="home-content">
+			<div className="gif-container">
 			<img src={Gameplay} alt="" className="gameplay-right" />
 			<img src={Gameplay2} alt="" className="gameplay-left" />
+			</div>
 			<div className="about">
 				<p>
 					{" "}
 					<strong>Dead Cells</strong> is a rogue-like,
-					Castlevania-inspired action-platformer from Motion Twin. It
+					Castlevania-inspired action-platformer from <strong>Motion Twin</strong>. It
 					was released on the 7th of August 2018.
 				</p>
 				<br />
