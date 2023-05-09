@@ -38,9 +38,9 @@ export const ProductDetails = (props) => {
 				<p className="description">{description}</p>
 				<span className="price-container">
 					<img
-						className="gold-icon"
+						className="gold-icon-medium"
 						src={CurrencyIcon}
-						alt="gold-coin"
+						alt="gold-coin-medium"
 					/>
 					<p>{price}</p>
 				</span>

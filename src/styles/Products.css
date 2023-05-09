@@ -41,4 +41,11 @@
     margin: 6px;
     padding: 7px;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.price-name h4 {
+    width: 100%;
 }
