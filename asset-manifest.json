@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Gibsongf/react-shopping-cart/static/css/main.04f34669.css",
+    "main.js": "/Gibsongf/react-shopping-cart/static/js/main.b45f83fb.js",
+    "static/media/gameplay2.gif": "/Gibsongf/react-shopping-cart/static/media/gameplay2.35f81fa2978a8724de03.gif",
+    "static/media/gameplay.gif": "/Gibsongf/react-shopping-cart/static/media/gameplay.145a68552e47b324ce66.gif",
+    "static/media/Dead_Cells_logo.png": "/Gibsongf/react-shopping-cart/static/media/Dead_Cells_logo.94690b1a8b2febce5440.png",
+    "static/media/main-bk.jpg": "/Gibsongf/react-shopping-cart/static/media/main-bk.b10796678455deab61ac.jpg",
+    "static/media/rainyhearts.woff": "/Gibsongf/react-shopping-cart/static/media/rainyhearts.88d516f860c84bcbecde.woff",
+    "static/media/rainyhearts.woff2": "/Gibsongf/react-shopping-cart/static/media/rainyhearts.17dc87a5a15fefa54b9e.woff2",
+    "index.html": "/Gibsongf/react-shopping-cart/index.html",
+    "main.04f34669.css.map": "/Gibsongf/react-shopping-cart/static/css/main.04f34669.css.map",
+    "main.b45f83fb.js.map": "/Gibsongf/react-shopping-cart/static/js/main.b45f83fb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04f34669.css",
+    "static/js/main.b45f83fb.js"
+  ]
+}
