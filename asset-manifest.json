@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-shopping-cart/static/css/main.d8c851d5.css",
-    "main.js": "/react-shopping-cart/static/js/main.139edc8d.js",
+    "main.js": "/react-shopping-cart/static/js/main.b1ff506e.js",
     "static/media/gameplay2.gif": "/react-shopping-cart/static/media/gameplay2.35f81fa2978a8724de03.gif",
     "static/media/gameplay.gif": "/react-shopping-cart/static/media/gameplay.145a68552e47b324ce66.gif",
     "static/media/Dead_Cells_logo.png": "/react-shopping-cart/static/media/Dead_Cells_logo.94690b1a8b2febce5440.png",
@@ -10,10 +10,10 @@
     "static/media/rainyhearts.woff2": "/react-shopping-cart/static/media/rainyhearts.17dc87a5a15fefa54b9e.woff2",
     "index.html": "/react-shopping-cart/index.html",
     "main.d8c851d5.css.map": "/react-shopping-cart/static/css/main.d8c851d5.css.map",
-    "main.139edc8d.js.map": "/react-shopping-cart/static/js/main.139edc8d.js.map"
+    "main.b1ff506e.js.map": "/react-shopping-cart/static/js/main.b1ff506e.js.map"
   },
   "entrypoints": [
     "static/css/main.d8c851d5.css",
-    "static/js/main.139edc8d.js"
+    "static/js/main.b1ff506e.js"
   ]
 }
