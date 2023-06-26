@@ -8,6 +8,7 @@ import { Cart } from "./components/Cart";
 import { useState } from "react";
 import { Order } from "./pages/Orders";
 import { ProductDetails } from "./components/DetailProduct";
+
 function App() {
 	const [quantity, setQuantity] = useState(0);
 	const cart = Cart(setQuantity);
