@@ -9,14 +9,7 @@ import "../styles/Products.css";
 
 export const Shop = (props) => {
     const { addToCart, setItemDetail } = props;
-    const brutal = brutalItems();
-    const tactics = tacticsItems();
-    const survival = survivalItems();
-    const tacticsImgs = allImg(tactics, "tactics");
-    const brutalImgs = allImg(brutal, "brutality");
-    const survivalImg = allImg(survival, "survival");
-
-    const arrayAll = [brutalImgs, tacticsImgs, survivalImg];
+    const arrayAll = allImg();
     let count = 0;
     return (
         <div className="container">

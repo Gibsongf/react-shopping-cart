@@ -16,16 +16,17 @@ export const Cart = (setQuantity) => {
     useEffect(() => {
         const sumQuantity = () => {
             const keys = Object.keys(storage);
+
             const quantity = keys.map((k) => storage[k].quantity);
-            const all = quantity.reduce(
+            const totalQuantity = quantity.reduce(
                 (total, currentNum) => total + currentNum,
                 0
             );
-            return all;
+            return totalQuantity;
         };
-        console.log(storage);
+        // console.log(storage);
         setQuantity(sumQuantity());
-    }, [storage]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [storage]);
 
     return { updateStorage, storage };
 };

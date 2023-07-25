@@ -5,7 +5,8 @@ export const Product = (props) => {
     const { name, imgSrc, price } = props;
 
     const handleClick = () => {
-        props.clickedItem({ ...props });
+        // props.clickedItem({ ...props });
+        localStorage.setItem("selected-product", JSON.stringify(props));
     };
 
     return (

@@ -77,32 +77,41 @@ export const survivalItems = () => {
     };
     return itemsData;
 };
-export const allImg = (imgNames, subfolder) => {
+export const allImg = () => {
+    // products details
+    const brutal = brutalItems();
+    const tactics = tacticsItems();
+    const survival = survivalItems();
+
     // search for all the png imgs in specific folder
     const survivalFolder = require.context("./imgs/survival", false, /\.png/);
     const brutalFolder = require.context("./imgs/brutality", false, /\.png/);
     const tacticsFolder = require.context("./imgs/tactics", false, /\.png/);
+
     const paths = {
-        survival: survivalFolder,
-        brutality: brutalFolder,
-        tactics: tacticsFolder,
+        survival: [survivalFolder, survival],
+        brutality: [brutalFolder, brutal],
+        tactics: [tacticsFolder, tactics],
     };
+
     try {
-        // send the results and get
-        //a obj contain src name of all imgs
-        const imgSrc = getAllImgs(paths[subfolder], imgNames);
-        return imgSrc;
+        const all = Object.keys(paths).map((p) => {
+            return getAllImgs(paths[p][0], paths[p][1]);
+        });
+        // const imgSrc = getAllImgs(paths[subfolder][0], paths[subfolder][1]);
+        return all;
     } catch (error) {
         throw error;
     }
 };
+let t = false;
 function getAllImgs(imgsFiles, imgsData) {
     /* will contain the image src and the description of each img */
     const obj = {};
     const index = [0, 1, 2, 3, 4];
     const imagesSrc = imgsFiles.keys();
     const sortedImgNames = Object.keys(imgsData).sort();
-    // console.log(imagesSrc, sortedImgNames);
+
     index.forEach(
         (i) =>
             (obj[imagesSrc[i]] = {
@@ -116,3 +125,11 @@ function getAllImgs(imgsFiles, imgsData) {
 
     return obj;
 }
+const products_list = () => {
+    const brutal = brutalItems();
+    const tactics = tacticsItems();
+    const survival = survivalItems();
+    const tacticsImgs = allImg(tactics, "tactics");
+    const brutalImgs = allImg(brutal, "brutality");
+    const survivalImg = allImg(survival, "survival");
+};

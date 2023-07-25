@@ -5,37 +5,42 @@ import Logo from "./imgs/Dead_Cells_logo.png";
 import ShopIcon from "./imgs/cart-icon.png";
 import { Home } from "./pages/Home";
 import { Cart } from "./components/Cart";
-import { useState } from "react";
+import { useState, createContext } from "react";
 import { Order } from "./pages/Orders";
 import { ProductDetails } from "./components/DetailProduct";
-
+export const ShopContext = Cart();
+const Header = () => {
+    return (
+        <nav className="nav">
+            <img className="logo" src={Logo} alt="logo" />
+            <ul className="menu">
+                <li>
+                    <NavLink to="/">Home</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/shop">Shop</NavLink>
+                </li>
+                <li>
+                    <NavLink className="cart-icon-nav" to="/cart">
+                        <img
+                            className="shop-icon"
+                            src={ShopIcon}
+                            alt="shop cart"
+                        />
+                        {/* {quantity} */}
+                    </NavLink>
+                </li>
+            </ul>
+        </nav>
+    );
+};
 function App() {
     const [quantity, setQuantity] = useState(0);
     const cart = Cart(setQuantity);
     const [selectItem, setSelectItem] = useState({});
     return (
         <div className="App">
-            <nav className="nav">
-                <img className="logo" src={Logo} alt="logo" />
-                <ul className="menu">
-                    <li>
-                        <NavLink to="/">Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/shop">Shop</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="cart-icon-nav" to="/cart">
-                            <img
-                                className="shop-icon"
-                                src={ShopIcon}
-                                alt="shop cart"
-                            />
-                            {quantity}
-                        </NavLink>
-                    </li>
-                </ul>
-            </nav>
+            <Header />
 
             <Routes>
                 <Route
