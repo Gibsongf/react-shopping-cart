@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "../styles/DetailProduct.css";
 import CurrencyIcon from "../imgs/Gold_Currency_Icon.png";
 import BackIcon from "../imgs/go-back.png";
 import { NavLink } from "react-router-dom";
+import { ShopContext } from "../App";
 
 export const ProductDetails = (props) => {
-    const { name, description, imgSrc, price, addToCart } = props;
+    const { name, description, imgSrc, price } = JSON.parse(
+        localStorage.getItem("selected-product")
+    );
+    const { updateStorage, selectItem } = useContext(ShopContext);
+    console.log(selectItem);
     const [val, setVal] = useState(1);
     const changeQuantity = (e) => {
         setVal(e.target.value);
@@ -18,7 +23,7 @@ export const ProductDetails = (props) => {
             quantity: Number(val),
             imageSrc: imgSrc,
         };
-        addToCart(product);
+        updateStorage(product);
     };
     const GoBack = (
         <NavLink to="/shop">

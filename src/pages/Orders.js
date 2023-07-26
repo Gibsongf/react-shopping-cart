@@ -1,13 +1,13 @@
-import { useState } from "react";
 import { OrderProducts } from "../components/ProductInCart";
 import CurrencyIcon from "../imgs/Gold_Currency_Icon.png";
+import { useContext } from "react";
+import { ShopContext } from "../App";
 
-export const Order = (props) => {
-    const { listOrders } = props;
-    const uniqueProducts = Object.keys(listOrders);
-    const [cartItems, setCartItems] = useState(listOrders);
-    const sum = (tag) => {
-        const allPrices = uniqueProducts.map((n) => cartItems[n][tag]);
+export const Order = () => {
+    const { storage } = useContext(ShopContext);
+    const uniqueProducts = Object.keys(storage);
+    const sum = () => {
+        const allPrices = uniqueProducts.map((n) => storage[n]["total"]);
         const total = allPrices.reduce((t, currentNum) => t + currentNum, 0);
         return total;
     };
@@ -31,12 +31,11 @@ export const Order = (props) => {
                     return (
                         <OrderProducts
                             key={name}
-                            imgSrc={listOrders[name].imageSrc}
-                            description={listOrders[name].description}
+                            imgSrc={storage[name].imageSrc}
+                            description={storage[name].description}
                             name={name}
-                            price={listOrders[name].price}
-                            quantity={listOrders[name].quantity}
-                            changeCart={setCartItems}
+                            price={storage[name].price}
+                            quantity={storage[name].quantity}
                         />
                     );
                 })}
@@ -44,7 +43,7 @@ export const Order = (props) => {
             <span className="total">
                 Total:
                 <img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
-                <p>{sum("total")}</p>
+                <p>{sum()}</p>
             </span>
         </div>
     );

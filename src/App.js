@@ -5,11 +5,18 @@ import Logo from "./imgs/Dead_Cells_logo.png";
 import ShopIcon from "./imgs/cart-icon.png";
 import { Home } from "./pages/Home";
 import { Cart } from "./components/Cart";
-import { useState, createContext } from "react";
+import { createContext, useContext } from "react";
 import { Order } from "./pages/Orders";
 import { ProductDetails } from "./components/DetailProduct";
-export const ShopContext = Cart();
+
+export const ShopContext = createContext({
+    storage: {},
+    updateStorage: () => {},
+    quantity: 0,
+});
+
 const Header = () => {
+    const { quantity } = useContext(ShopContext);
     return (
         <nav className="nav">
             <img className="logo" src={Logo} alt="logo" />
@@ -27,7 +34,7 @@ const Header = () => {
                             src={ShopIcon}
                             alt="shop cart"
                         />
-                        {/* {quantity} */}
+                        {quantity}
                     </NavLink>
                 </li>
             </ul>
@@ -35,40 +42,21 @@ const Header = () => {
     );
 };
 function App() {
-    const [quantity, setQuantity] = useState(0);
-    const cart = Cart(setQuantity);
-    const [selectItem, setSelectItem] = useState({});
+    const { storage, quantity, updateStorage } = Cart();
     return (
         <div className="App">
-            <Header />
+            <ShopContext.Provider value={{ storage, quantity, updateStorage }}>
+                <Header />
 
-            <Routes>
-                <Route
-                    path="cart"
-                    element={<Order listOrders={cart.storage} />}
-                />
-                <Route path="shop/*">
-                    <Route
-                        index
-                        element={
-                            <Shop
-                                addToCart={cart.updateStorage}
-                                setItemDetail={setSelectItem}
-                            />
-                        }
-                    />
-                    <Route
-                        path=":id"
-                        element={
-                            <ProductDetails
-                                {...selectItem}
-                                addToCart={cart.updateStorage}
-                            />
-                        }
-                    />
-                </Route>
-                <Route path="/" element={<Home />} />
-            </Routes>
+                <Routes>
+                    <Route path="cart" element={<Order />} />
+                    <Route path="shop/*">
+                        <Route index element={<Shop />} />
+                        <Route path=":id" element={<ProductDetails />} />
+                    </Route>
+                    <Route path="/" element={<Home />} />
+                </Routes>
+            </ShopContext.Provider>
         </div>
     );
 }

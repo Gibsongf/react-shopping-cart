@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
-export const Cart = (setQuantity) => {
+export const Cart = () => {
     const [storage, setStorage] = useState({});
+    const [quantity, setQuantity] = useState(0);
+
     const individualProductTotal = (product) => {
         product.total = Number(product.quantity) * Number(product.price);
     };
@@ -28,5 +30,5 @@ export const Cart = (setQuantity) => {
         setQuantity(sumQuantity());
     }, [storage]);
 
-    return { updateStorage, storage };
+    return { updateStorage, storage, quantity };
 };
