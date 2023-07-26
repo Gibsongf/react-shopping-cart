@@ -13,6 +13,7 @@ export const ShopContext = createContext({
     storage: {},
     updateStorage: () => {},
     changeProductQuantity: () => {},
+    removeProduct: () => {},
     quantity: 0,
 });
 
@@ -43,7 +44,13 @@ const Header = () => {
     );
 };
 function App() {
-    const { updateStorage, storage, quantity, changeProductQuantity } = Cart();
+    const {
+        updateStorage,
+        storage,
+        quantity,
+        changeProductQuantity,
+        removeProduct,
+    } = Cart();
     return (
         <div className="App">
             <ShopContext.Provider
@@ -52,6 +59,7 @@ function App() {
                     quantity,
                     updateStorage,
                     changeProductQuantity,
+                    removeProduct,
                 }}
             >
                 <Header />

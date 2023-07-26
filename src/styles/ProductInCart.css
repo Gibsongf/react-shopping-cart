@@ -12,7 +12,7 @@
 .product-info,
 .tag {
     display: grid;
-    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    grid-template-columns: repeat(5, minmax(150px, 1fr));
     align-items: center;
     justify-items: center;
     padding: 25px;
@@ -76,4 +76,16 @@
     /* width: 14vw; */
     image-rendering: pixelated;
     /* padding: 25px; */
+    object-fit: contain;
+
+}
+
+.remove-item {
+    background-color: rgb(5, 3, 3);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
 }

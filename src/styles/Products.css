@@ -33,6 +33,8 @@
     height: 25vh;
     image-rendering: pixelated;
     padding: 15px;
+    object-fit: contain;
+
 }
 
 .price-name {
@@ -46,6 +48,7 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
 .price-name h4 {
     width: 100%;
 }

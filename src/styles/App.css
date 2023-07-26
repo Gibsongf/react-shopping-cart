@@ -41,6 +41,7 @@
     height: 150px; */
     width: 32vw;
     height: 17vh;
+    object-fit: contain;
 }
 
 ul {

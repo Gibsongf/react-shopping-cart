@@ -15,6 +15,12 @@ export const Cart = () => {
             return { ...storage, [product.name]: product };
         });
     };
+    const removeProduct = (e) => {
+        setStorage(() => {
+            delete storage[e.target.id];
+            return { ...storage };
+        });
+    };
     const updateStorage = (product) => {
         setStorage(() => {
             individualProductTotal(product);
@@ -25,18 +31,22 @@ export const Cart = () => {
     useEffect(() => {
         const sumQuantity = () => {
             const keys = Object.keys(storage);
-
             const quantity = keys.map((k) => storage[k].quantity);
             const totalQuantity = quantity.reduce(
                 (total, currentNum) => total + currentNum,
                 0
             );
-            // const parsedNumber = parseInt(totalQuantity.toString(), 10);
             return totalQuantity;
         };
 
-        setQuantity(sumQuantity());
+        setQuantity(() => sumQuantity());
     }, [storage]);
 
-    return { updateStorage, storage, quantity, changeProductQuantity };
+    return {
+        updateStorage,
+        storage,
+        quantity,
+        changeProductQuantity,
+        removeProduct,
+    };
 };

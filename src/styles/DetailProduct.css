@@ -8,7 +8,7 @@
 }
 
 .item-img-select {
-    width: 70%;
+    min-width: 50%;
     image-rendering: pixelated;
     border: yellow solid 5px;
     padding: 15px;

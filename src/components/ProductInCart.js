@@ -22,6 +22,20 @@ const InputQuantity = ({ productQuantity, productName }) => {
         />
     );
 };
+const ButtonRemoveProduct = ({ productName }) => {
+    const { removeProduct } = useContext(ShopContext);
+
+    return (
+        <button
+            id={productName}
+            className="remove-item"
+            type="button"
+            onClick={removeProduct}
+        >
+            Remove
+        </button>
+    );
+};
 export const OrderProducts = (props) => {
     const { name, description, imgSrc, price, quantity } = props;
 
@@ -32,12 +46,12 @@ export const OrderProducts = (props) => {
                 <h2>{name}</h2>
                 <p className="description">{description}</p>
             </div>
-            {/* <h4>{quantity}</h4> */}
             <InputQuantity productName={name} productQuantity={quantity} />
             <span className="individual-price">
                 <img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
                 <p>{price}</p>
             </span>
+            <ButtonRemoveProduct productName={name} />
         </div>
     );
 };
