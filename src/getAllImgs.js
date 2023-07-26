@@ -98,13 +98,13 @@ export const allImg = () => {
         const all = Object.keys(paths).map((p) => {
             return getAllImgs(paths[p][0], paths[p][1]);
         });
+
         // const imgSrc = getAllImgs(paths[subfolder][0], paths[subfolder][1]);
         return all;
     } catch (error) {
         throw error;
     }
 };
-let t = false;
 function getAllImgs(imgsFiles, imgsData) {
     /* will contain the image src and the description of each img */
     const obj = {};
@@ -122,14 +122,15 @@ function getAllImgs(imgsFiles, imgsData) {
                 /* id: "card" + (imagesSrc.indexOf(key) + 1), */
             })
     );
-
     return obj;
 }
-const products_list = () => {
-    const brutal = brutalItems();
-    const tactics = tacticsItems();
-    const survival = survivalItems();
-    const tacticsImgs = allImg(tactics, "tactics");
-    const brutalImgs = allImg(brutal, "brutality");
-    const survivalImg = allImg(survival, "survival");
+export const allProductsData = () => {
+    const arrayAll = allImg();
+    const allObjs = {};
+    arrayAll.forEach((obj) =>
+        Object.keys(obj).forEach((key) => {
+            allObjs[key] = obj[key];
+        })
+    );
+    return allObjs;
 };

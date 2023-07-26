@@ -26,7 +26,7 @@ export const Cart = () => {
             );
             return totalQuantity;
         };
-        // console.log(storage);
+
         setQuantity(sumQuantity());
     }, [storage]);
 

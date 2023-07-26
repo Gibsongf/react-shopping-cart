@@ -9,8 +9,7 @@ export const ProductDetails = (props) => {
     const { name, description, imgSrc, price } = JSON.parse(
         localStorage.getItem("selected-product")
     );
-    const { updateStorage, selectItem } = useContext(ShopContext);
-    console.log(selectItem);
+    const { updateStorage } = useContext(ShopContext);
     const [val, setVal] = useState(1);
     const changeQuantity = (e) => {
         setVal(e.target.value);

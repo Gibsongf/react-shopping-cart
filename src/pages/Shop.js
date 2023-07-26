@@ -1,34 +1,24 @@
-import {
-    brutalItems,
-    survivalItems,
-    tacticsItems,
-    allImg,
-} from "../getAllImgs.js";
+import { allProductsData } from "../getAllImgs.js";
 import { Product } from "../components/Products.js";
 import "../styles/Products.css";
 
-export const Shop = (props) => {
-    const { addToCart, setItemDetail } = props;
-    const arrayAll = allImg();
-    let count = 0;
+export const Shop = () => {
+    const allProducts = allProductsData();
+    const keys = Object.keys(allProducts);
     return (
         <div className="container">
-            {arrayAll.map((imgData) =>
-                Object.keys(imgData).map((fKey) => {
-                    return (
-                        <Product
-                            addToCart={addToCart}
-                            key={fKey}
-                            id={count++}
-                            imgSrc={imgData[fKey].src}
-                            description={imgData[fKey].description}
-                            name={imgData[fKey].name}
-                            price={imgData[fKey].price}
-                            clickedItem={setItemDetail}
-                        />
-                    );
-                })
-            )}
+            {keys.map((fKey) => {
+                return (
+                    <Product
+                        key={fKey}
+                        id={keys.indexOf(fKey)}
+                        imgSrc={allProducts[fKey].src}
+                        description={allProducts[fKey].description}
+                        name={allProducts[fKey].name}
+                        price={allProducts[fKey].price}
+                    />
+                );
+            })}
         </div>
     );
 };
