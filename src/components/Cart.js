@@ -9,8 +9,11 @@ export const Cart = () => {
     };
     const changeProductQuantity = (e) => {
         const product = storage[e.target.id];
-        product.quantity = e.target.value;
-        updateStorage(product);
+        product.quantity = Number(e.target.value);
+        setStorage(() => {
+            individualProductTotal(product);
+            return { ...storage, [product.name]: product };
+        });
     };
     const updateStorage = (product) => {
         setStorage(() => {
@@ -22,13 +25,14 @@ export const Cart = () => {
     useEffect(() => {
         const sumQuantity = () => {
             const keys = Object.keys(storage);
+
             const quantity = keys.map((k) => storage[k].quantity);
             const totalQuantity = quantity.reduce(
                 (total, currentNum) => total + currentNum,
                 0
             );
-            const parsedNumber = parseInt(totalQuantity.toString(), 10);
-            return parsedNumber;
+            // const parsedNumber = parseInt(totalQuantity.toString(), 10);
+            return totalQuantity;
         };
 
         setQuantity(sumQuantity());

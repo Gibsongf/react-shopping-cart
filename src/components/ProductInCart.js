@@ -15,6 +15,7 @@ const InputQuantity = ({ productQuantity, productName }) => {
             type="number"
             name="quantity"
             id={productName}
+            className="quantity_cart"
             value={quantity}
             min="1"
             onChange={valueChange}

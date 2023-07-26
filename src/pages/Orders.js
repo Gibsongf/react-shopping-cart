@@ -6,8 +6,8 @@ import { ShopContext } from "../App";
 export const Order = () => {
     const { storage } = useContext(ShopContext);
     const uniqueProducts = Object.keys(storage);
-    const sum = () => {
-        const allPrices = uniqueProducts.map((n) => storage[n]["total"]);
+    const sum = (tag) => {
+        const allPrices = uniqueProducts.map((n) => storage[n][tag]);
         const total = allPrices.reduce((t, currentNum) => t + currentNum, 0);
         return total;
     };
@@ -43,7 +43,7 @@ export const Order = () => {
             <span className="total">
                 Total:
                 <img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
-                <p>{sum()}</p>
+                <p>{sum("total")}</p>
             </span>
         </div>
     );
