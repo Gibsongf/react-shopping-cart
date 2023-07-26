@@ -12,6 +12,7 @@ import { ProductDetails } from "./components/DetailProduct";
 export const ShopContext = createContext({
     storage: {},
     updateStorage: () => {},
+    changeProductQuantity: () => {},
     quantity: 0,
 });
 
@@ -42,10 +43,17 @@ const Header = () => {
     );
 };
 function App() {
-    const { storage, quantity, updateStorage } = Cart();
+    const { updateStorage, storage, quantity, changeProductQuantity } = Cart();
     return (
         <div className="App">
-            <ShopContext.Provider value={{ storage, quantity, updateStorage }}>
+            <ShopContext.Provider
+                value={{
+                    storage,
+                    quantity,
+                    updateStorage,
+                    changeProductQuantity,
+                }}
+            >
                 <Header />
 
                 <Routes>

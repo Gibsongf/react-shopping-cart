@@ -1,6 +1,26 @@
+import { useContext, useState } from "react";
 import CurrencyIcon from "../imgs/Gold_Currency_Icon.png";
 import "../styles/ProductInCart.css";
+import { ShopContext } from "../App";
 
+const InputQuantity = ({ productQuantity, productName }) => {
+    const [quantity, setQuantity] = useState(productQuantity);
+    const { changeProductQuantity } = useContext(ShopContext);
+    const valueChange = (e) => {
+        setQuantity(() => e.target.value);
+        changeProductQuantity(e);
+    };
+    return (
+        <input
+            type="number"
+            name="quantity"
+            id={productName}
+            value={quantity}
+            min="1"
+            onChange={valueChange}
+        />
+    );
+};
 export const OrderProducts = (props) => {
     const { name, description, imgSrc, price, quantity } = props;
 
@@ -11,7 +31,8 @@ export const OrderProducts = (props) => {
                 <h2>{name}</h2>
                 <p className="description">{description}</p>
             </div>
-            <h4>{quantity}</h4>
+            {/* <h4>{quantity}</h4> */}
+            <InputQuantity productName={name} productQuantity={quantity} />
             <span className="individual-price">
                 <img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
                 <p>{price}</p>
