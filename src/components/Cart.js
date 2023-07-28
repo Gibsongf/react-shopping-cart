@@ -3,18 +3,18 @@ import { useMemo, useState } from "react";
 export const Cart = () => {
     const [storage, setStorage] = useState({});
     const { quantity, total } = useMemo(() => {
-        const sumQuantity = (tag) => {
+        const sum = (tag) => {
             const keys = Object.keys(storage);
-            const quantity = keys.map((k) => storage[k][tag]);
-            const totalQuantity = quantity.reduce(
+            const selectTagNumbers = keys.map((k) => storage[k][tag]);
+            const result = selectTagNumbers.reduce(
                 (total, currentNum) => total + currentNum,
                 0
             );
-            return totalQuantity;
+            return result;
         };
         return {
-            quantity: sumQuantity("quantity"),
-            total: sumQuantity("total"),
+            quantity: sum("quantity"),
+            total: sum("total"),
         };
     }, [storage]);
 
@@ -22,7 +22,7 @@ export const Cart = () => {
         product.total = Number(product.quantity) * Number(product.price);
     };
     const changeProductQuantity = (e) => {
-        const product = storage[e.target.id];
+        const product = { ...storage[e.target.id] };
         product.quantity = Number(e.target.value);
         setStorage(() => {
             individualProductTotal(product);

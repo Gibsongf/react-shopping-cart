@@ -11,7 +11,7 @@ const Back = () => {
         </NavLink>
     );
 };
-export const ProductDetails = (props) => {
+export const ProductDetails = () => {
     const { name, description, imgSrc, price } = JSON.parse(
         localStorage.getItem("selected-product")
     );
