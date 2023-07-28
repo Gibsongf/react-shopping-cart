@@ -5,10 +5,10 @@ import { ShopContext } from "../App";
 
 export const Order = () => {
     const { storage, quantity, total } = useContext(ShopContext);
-    const uniqueProducts = Object.keys(storage);
+    const products = Object.keys(storage);
 
     let pageBackGround = {};
-    if (uniqueProducts.length < 2) {
+    if (products.length < 2) {
         pageBackGround = { height: "100vh" };
     }
     return (
@@ -22,7 +22,7 @@ export const Order = () => {
                 <h4>Unity Price</h4>
             </div>
             <div className="container-products">
-                {uniqueProducts.map((name) => {
+                {products.map((name) => {
                     return (
                         <OrderProducts
                             key={name}
