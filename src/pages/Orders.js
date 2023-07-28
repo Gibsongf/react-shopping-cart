@@ -4,13 +4,8 @@ import { useContext } from "react";
 import { ShopContext } from "../App";
 
 export const Order = () => {
-    const { storage } = useContext(ShopContext);
+    const { storage, quantity, total } = useContext(ShopContext);
     const uniqueProducts = Object.keys(storage);
-    const sum = (tag) => {
-        const allPrices = uniqueProducts.map((n) => storage[n][tag]);
-        const total = allPrices.reduce((t, currentNum) => t + currentNum, 0);
-        return total;
-    };
 
     let pageBackGround = {};
     if (uniqueProducts.length < 2) {
@@ -18,7 +13,7 @@ export const Order = () => {
     }
     return (
         <div className="orders" style={pageBackGround}>
-            <h1 className="my-cart">My Cart ({sum("quantity")} items)</h1>
+            <h1 className="my-cart">My Cart ({quantity}) items</h1>
 
             <div className="tag">
                 <h4>Product</h4>
@@ -43,7 +38,7 @@ export const Order = () => {
             <span className="total">
                 Total:
                 <img className="gold-icon" src={CurrencyIcon} alt="gold-coin" />
-                <p>{sum("total")}</p>
+                <p>{total}</p>
             </span>
         </div>
     );

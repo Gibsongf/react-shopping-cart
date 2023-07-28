@@ -4,7 +4,13 @@ import CurrencyIcon from "../imgs/Gold_Currency_Icon.png";
 import BackIcon from "../imgs/go-back.png";
 import { NavLink } from "react-router-dom";
 import { ShopContext } from "../App";
-
+const Back = () => {
+    return (
+        <NavLink to="/shop">
+            <img className="back" src={BackIcon} alt="back-icon" />
+        </NavLink>
+    );
+};
 export const ProductDetails = (props) => {
     const { name, description, imgSrc, price } = JSON.parse(
         localStorage.getItem("selected-product")
@@ -24,14 +30,10 @@ export const ProductDetails = (props) => {
         };
         updateStorage(product);
     };
-    const GoBack = (
-        <NavLink to="/shop">
-            <img className="back" src={BackIcon} alt="back-icon" />
-        </NavLink>
-    );
+
     return (
         <>
-            {props.test ? "" : GoBack}
+            <Back />
             <div className="content">
                 <img
                     src={imgSrc}

@@ -15,6 +15,7 @@ export const ShopContext = createContext({
     changeProductQuantity: () => {},
     removeProduct: () => {},
     quantity: 0,
+    total: 0,
 });
 
 const Header = () => {
@@ -50,6 +51,7 @@ function App() {
         quantity,
         changeProductQuantity,
         removeProduct,
+        total,
     } = Cart();
     return (
         <div className="App">
@@ -57,6 +59,7 @@ function App() {
                 value={{
                     storage,
                     quantity,
+                    total,
                     updateStorage,
                     changeProductQuantity,
                     removeProduct,
