@@ -22,11 +22,11 @@ export const Cart = () => {
         product.total = Number(product.quantity) * Number(product.price);
     };
     const changeProductQuantity = (e) => {
-        const product = { ...storage[e.target.id] };
-        product.quantity = Number(e.target.value);
-        setStorage(() => {
+        setStorage((previousStorage) => {
+            const product = { ...previousStorage[e.target.id] };
+            product.quantity = Number(e.target.value);
             individualProductTotal(product);
-            return { ...storage, [product.name]: product };
+            return { ...previousStorage, [product.name]: product };
         });
     };
     const removeProduct = (e) => {
