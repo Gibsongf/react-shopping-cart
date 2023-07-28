@@ -23,6 +23,7 @@
     background-attachment: fixed;
     font-size: 1.1rem;
     font-family: "main-pixelated";
+    min-height: 100vh;
 }
 
 

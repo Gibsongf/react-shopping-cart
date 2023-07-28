@@ -7,12 +7,12 @@ export const Order = () => {
     const { storage, quantity, total } = useContext(ShopContext);
     const products = Object.keys(storage);
 
-    let pageBackGround = {};
-    if (products.length < 2) {
-        pageBackGround = { height: "100vh" };
-    }
+    // let pageBackGround = {};
+    // if (products.length < 2) {
+    //     pageBackGround = { height: "100vh" };
+    // }
     return (
-        <div className="orders" style={pageBackGround}>
+        <div className="orders">
             <h1 className="my-cart">My Cart ({quantity}) items</h1>
 
             <div className="tag">
